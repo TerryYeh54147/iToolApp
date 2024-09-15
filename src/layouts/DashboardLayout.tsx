@@ -1,21 +1,19 @@
 import * as React from 'react'
-import Box from '@mui/material/Box'
-import Typography from '@mui/material/Typography'
 import { createTheme } from '@mui/material/styles'
 import { Dashboard, Info, Analytics, QueryStats } from '@mui/icons-material'
 import { AppProvider } from '@toolpad/core/AppProvider'
 import { DashboardLayout } from '@toolpad/core/DashboardLayout'
 import type { Router, Navigation } from '@toolpad/core'
-import { Outlet } from 'react-router-dom'
+import { Outlet, Path, useLocation, useNavigate } from 'react-router-dom'
 import logoImage from '@/assets/logo.svg'
 
-const NAVIGATION: Navigation = [
+const navItems: Navigation = [
   {
     kind: 'header',
     title: 'Main items',
   },
   {
-    segment: 'dashboard',
+    segment: '',
     title: 'Dashboard',
     icon: <Dashboard />,
   },
@@ -45,7 +43,7 @@ const NAVIGATION: Navigation = [
   },
 ]
 
-const demoTheme = createTheme({
+const theme = createTheme({
   cssVariables: {
     colorSchemeSelector: 'data-toolpad-color-scheme',
   },
@@ -61,45 +59,17 @@ const demoTheme = createTheme({
   },
 })
 
-function DemoPageContent({ pathname }: { pathname: string }) {
-  return (
-    <Box
-      sx={{
-        py: 4,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        textAlign: 'center',
-      }}
-    >
-      <Typography>Dashboard content for {pathname}</Typography>
-    </Box>
+export default function DashboardLayoutBasic() {
+  const navigate = useNavigate()
+  const location = useLocation()
+  const router = React.useMemo<Router>(
+    () => ({
+      pathname: location.pathname,
+      searchParams: new URLSearchParams(location.search),
+      navigate: (to: string | Partial<Path>) => navigate(to),
+    }),
+    [location, navigate],
   )
-}
-
-interface DemoProps {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * Remove this when copying and pasting into your project.
-   */
-  window?: () => Window
-}
-
-export default function DashboardLayoutBasic(props: DemoProps) {
-  const { window } = props
-
-  const [pathname, setPathname] = React.useState('/')
-
-  const router = React.useMemo<Router>(() => {
-    return {
-      pathname,
-      searchParams: new URLSearchParams(),
-      navigate: (path) => setPathname(String(path)),
-    }
-  }, [pathname])
-
-  // Remove this const when copying and pasting into your project.
-  const demoWindow = window !== undefined ? window() : undefined
 
   return (
     <AppProvider
@@ -107,15 +77,15 @@ export default function DashboardLayoutBasic(props: DemoProps) {
         logo: <img src={logoImage} alt="logo" />,
         title: 'Flow App',
       }}
-      navigation={NAVIGATION}
+      navigation={navItems}
       router={router}
-      theme={demoTheme}
-      window={demoWindow}
+      theme={theme}
     >
       <DashboardLayout>
-        <Outlet />
+        <div className="container p-6">
+          <Outlet />
+        </div>
       </DashboardLayout>
     </AppProvider>
-    // preview-end
   )
 }
