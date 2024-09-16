@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { createTheme } from '@mui/material/styles'
-import { Dashboard, Info, Analytics, QueryStats } from '@mui/icons-material'
+import { Dashboard, Info, Analytics, QueryStats, Schema } from '@mui/icons-material'
 import { AppProvider } from '@toolpad/core/AppProvider'
 import { DashboardLayout } from '@toolpad/core/DashboardLayout'
 import type { Router, Navigation } from '@toolpad/core'
@@ -16,6 +16,11 @@ const navItems: Navigation = [
     segment: '',
     title: 'Dashboard',
     icon: <Dashboard />,
+  },
+  {
+    segment: 'flow',
+    title: 'Flow',
+    icon: <Schema />,
   },
   {
     segment: 'about',
