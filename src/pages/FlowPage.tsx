@@ -15,7 +15,7 @@ import '@xyflow/react/dist/style.css'
 import { initialNodes, nodeTypes } from '@/components/flow/nodes'
 import { initialEdges, edgeTypes } from '@/components/flow/edges'
 
-export default function App() {
+export default function FlowPage() {
   const [nodes, , onNodesChange] = useNodesState(initialNodes)
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges)
   const onConnect: OnConnect = useCallback(
@@ -24,19 +24,21 @@ export default function App() {
   )
 
   return (
-    <ReactFlow
-      nodes={nodes}
-      nodeTypes={nodeTypes}
-      onNodesChange={onNodesChange}
-      edges={edges}
-      edgeTypes={edgeTypes}
-      onEdgesChange={onEdgesChange}
-      onConnect={onConnect}
-      fitView
-    >
-      <Background />
-      <MiniMap />
-      <Controls />
-    </ReactFlow>
+    <div className="place-center" style={{ width: '80dvw', height: '80dvh' }}>
+      <ReactFlow
+        nodes={nodes}
+        nodeTypes={nodeTypes}
+        onNodesChange={onNodesChange}
+        edges={edges}
+        edgeTypes={edgeTypes}
+        onEdgesChange={onEdgesChange}
+        onConnect={onConnect}
+        fitView
+      >
+        <Background />
+        <MiniMap />
+        <Controls />
+      </ReactFlow>
+    </div>
   )
 }
