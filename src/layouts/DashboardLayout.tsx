@@ -75,7 +75,7 @@ export default function DashboardLayoutBasic() {
     <AppProvider
       branding={{
         logo: <img src={logoImage} alt="logo" />,
-        title: 'Flow App',
+        title: process.env.REACT_APP_TITLE,
       }}
       navigation={navItems}
       router={router}
