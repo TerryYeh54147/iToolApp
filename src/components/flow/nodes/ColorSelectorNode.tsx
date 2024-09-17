@@ -5,8 +5,7 @@ export const ColorSelectorNode = memo(
   ({ data, isConnectable }: NodeProps<ColorSelectorNodeType>) => {
     return (
       <div
-        className="border-zinc-500 border-2 rounded p-2"
-        style={{ backgroundColor: data.color }}
+        className="border-zinc-500 border-2 rounded p-2 bg-gray-400"
       >
         <div className="text-wrap text-center">
           <div className="font-bold"> {data.label}</div>
