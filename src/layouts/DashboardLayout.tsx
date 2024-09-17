@@ -87,7 +87,7 @@ export default function DashboardLayoutBasic() {
       theme={theme}
     >
       <DashboardLayout>
-        <div className="container p-6">
+        <div className="p-6">
           <Outlet />
         </div>
       </DashboardLayout>

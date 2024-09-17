@@ -1,5 +1,7 @@
 import type { Node, NodeTypes, BuiltInNode } from "@xyflow/react";
 import { PositionLoggerNode } from "./PositionLoggerNode";
+import { ColorSelectorNode } from "./ColorSelectorNode";
+import { ChangeEventHandler } from "react";
 
 export type PositionLoggerNode = Node<
   {
@@ -7,8 +9,16 @@ export type PositionLoggerNode = Node<
   },
   "position-logger"
 >;
+export type ColorSelectorNode = Node<
+  {
+    label?: string;
+    color: string;
+    onColorChange: ChangeEventHandler<HTMLInputElement> | undefined;
+  },
+  "color-selector"
+>;
 
-export type AppNode = BuiltInNode | PositionLoggerNode;
+export type AppNode = BuiltInNode | PositionLoggerNode | ColorSelectorNode;
 
 export const initialNodes: AppNode[] = [
   { id: "a", type: "input", position: { x: 0, y: 0 }, data: { label: "wire" } },
@@ -27,7 +37,8 @@ export const initialNodes: AppNode[] = [
   },
 ];
 
+// Add any of your custom nodes here!
 export const nodeTypes = {
   "position-logger": PositionLoggerNode,
-  // Add any of your custom nodes here!
+  "color-selector": ColorSelectorNode,
 } satisfies NodeTypes;

@@ -1,12 +1,15 @@
+import { memo } from 'react' // 添加 memo 导入
+
 import { Handle, Position, type NodeProps } from '@xyflow/react'
 
-import { type PositionLoggerNode } from './'
+import { type PositionLoggerNode as PositionLoggerNodeType } from './'
 
-export function PositionLoggerNode({
+export const PositionLoggerNode = memo(function PositionLoggerNode({
+  // 使用 memo 包裹组件
   positionAbsoluteX,
   positionAbsoluteY,
   data,
-}: NodeProps<PositionLoggerNode>) {
+}: NodeProps<PositionLoggerNodeType>) {
   const x = `${Math.round(positionAbsoluteX)}px`
   const y = `${Math.round(positionAbsoluteY)}px`
 
@@ -22,4 +25,4 @@ export function PositionLoggerNode({
       <Handle type="source" position={Position.Bottom} />
     </div>
   )
-}
+})
