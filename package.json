@@ -2,7 +2,7 @@
   "name": "flow-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://terryyeh54147.github.io/FlowApp/",
+  "homepage": "https://terryyeh54147.github.io/iFlowApp/",
   "dependencies": {
     "@craco/craco": "^7.1.0",
     "@emotion/react": "^11.13.3",
