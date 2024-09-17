@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Routes, Route } from 'react-router-dom'
 import { Suspense } from 'react'
 import routes from '@/router/index'
 
