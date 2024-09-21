@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunktool_app=self.webpackChunktool_app||[]).push([[511],{2511:(e,a,l)=>{l.r(a),l.d(a,{default:()=>t});l(5043);var s=l(579);const t=()=>(0,s.jsx)("div",{className:"font-bold text-3xl ma-10",children:"HomePage"})}}]);
+//# sourceMappingURL=511.d9857f66.chunk.js.map
