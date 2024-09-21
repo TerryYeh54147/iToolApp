@@ -1,11 +1,18 @@
 import * as React from 'react'
 import { createTheme } from '@mui/material/styles'
-import { Dashboard, Info, Analytics, QueryStats, Schema } from '@mui/icons-material'
+import {
+  Dashboard,
+  Info,
+  Analytics,
+  QueryStats,
+  Schema,
+} from '@mui/icons-material'
 import { AppProvider } from '@toolpad/core/AppProvider'
 import { DashboardLayout } from '@toolpad/core/DashboardLayout'
 import type { Router, Navigation } from '@toolpad/core'
 import { Outlet, Path, useLocation, useNavigate } from 'react-router-dom'
 import logoImage from '@/assets/logo.svg'
+import { ParentProps } from '@/types/component'
 
 const navItems: Navigation = [
   {
@@ -64,7 +71,7 @@ const theme = createTheme({
   },
 })
 
-export default function DashboardLayoutBasic() {
+const DashboardLayoutBasic: React.FC<ParentProps> = ({ children }) => {
   const navigate = useNavigate()
   const location = useLocation()
   const router = React.useMemo<Router>(
@@ -87,10 +94,9 @@ export default function DashboardLayoutBasic() {
       theme={theme}
     >
       <DashboardLayout>
-        <div className="p-6">
-          <Outlet />
-        </div>
+        <div className="p-6">{children}</div>
       </DashboardLayout>
     </AppProvider>
   )
 }
+export default DashboardLayoutBasic
