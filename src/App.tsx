@@ -1,5 +1,5 @@
 import { Suspense } from 'react'
-import Routes from '@/router'
+import Routes from '@/router/index'
 
 function App() {
   return (
