@@ -13,47 +13,7 @@ import type { Router, Navigation } from '@toolpad/core'
 import { Outlet, Path, useLocation, useNavigate } from 'react-router-dom'
 import logoImage from '@/assets/logo.svg'
 import { ParentProps } from '@/types/component'
-
-const navItems: Navigation = [
-  {
-    kind: 'header',
-    title: 'Main items',
-  },
-  {
-    segment: '',
-    title: 'Dashboard',
-    icon: <Dashboard />,
-  },
-  {
-    segment: 'flow',
-    title: 'Flow',
-    icon: <Schema />,
-  },
-  {
-    segment: 'about',
-    title: 'About',
-    icon: <Info />,
-  },
-  {
-    kind: 'divider',
-  },
-  {
-    kind: 'header',
-    title: 'Analytics',
-  },
-  {
-    segment: 'reports',
-    title: 'Reports',
-    icon: <Analytics />,
-    children: [
-      {
-        segment: 'usage',
-        title: 'Usage',
-        icon: <QueryStats />,
-      },
-    ],
-  },
-]
+import navItems from '@/components/NavItems'
 
 const theme = createTheme({
   cssVariables: {
