@@ -23,7 +23,7 @@ const navItems: Navigation = [
   },
   {
     segment: 'about',
-    title: 'About',
+    title: 'About Me',
     icon: <Info />,
   },
   {

@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react'
-import { useRoutes, Outlet, Navigate, RouteObject } from 'react-router-dom'
-
+import { useRoutes, Outlet, Navigate } from 'react-router-dom'
+import { Skeleton } from '@mui/material'
 import DashboardLayout from '@/layouts/DashboardLayout'
 const HomePage = lazy(() => import('@/pages/HomePage'))
 const AboutPage = lazy(() => import('@/pages/AboutPage'))
@@ -13,7 +13,7 @@ export default function Route() {
     {
       element: (
         <DashboardLayout>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<Skeleton animation="wave" />}>
             <Outlet />
           </Suspense>
         </DashboardLayout>

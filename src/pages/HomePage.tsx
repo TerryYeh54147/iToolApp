@@ -8,7 +8,7 @@ const HomePage: React.FC = () => {
   const navigate = useNavigate()
   return (
     <>
-      <div className="grid grid-auto-row place-center gap-5">
+      <div className="grid grid-flow-row place-center gap-5">
         <div className="font-bold text-3xl ma-10 text-center">All Items</div>
         <div className="flex flex-row flex-wrap gap-5">
           {navItems.map((e: NavigationItem, i) => {
@@ -34,7 +34,7 @@ const HomePage: React.FC = () => {
                     className="flex-auto border-solid rounded border-2 hover:border-sky-500 hover:shadow-xl "
                     onClick={() => navigate(`/${e.segment}`)}
                   >
-                    <div className="grid grid-auto-row gap-2 place-items-center p-4">
+                    <div className="grid grid-flow-row gap-2 place-items-center p-4">
                       {e.icon}
                       <div className="text-wrap text-center text-bold text-xl">
                         {e.title}
