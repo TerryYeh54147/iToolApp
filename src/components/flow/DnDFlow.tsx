@@ -102,7 +102,10 @@ export default function DnDFlow() {
 
   return (
     <>
-      <div id="dndFlow" className="flex flex-row flex-wrap-reverse">
+      <div
+        id="dndFlow"
+        className="flex flex-row flex-wrap-reverse md:flex-nowrap"
+      >
         <div className="place-center w-full h-[84dvh]" ref={reactFlowWrapper}>
           <ReactFlow
             colorMode={theme.palette.mode}
@@ -132,7 +135,7 @@ export default function DnDFlow() {
             <Controls />
           </ReactFlow>
         </div>
-        <div className="border-4 p-2 md:w-full">
+        <div className="border-4 p-2 w-full md:max-w-fit">
           <NodePickBar />
         </div>
       </div>
