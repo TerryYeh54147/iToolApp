@@ -5,6 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  @apply bg-light-bgColor text-light-txtColor dark:bg-dark-bgColor dark:text-dark-txtColor;
+}
+
+button {
+  @apply text-light-txtColor dark:text-dark-txtColor;
 }
 
 code {

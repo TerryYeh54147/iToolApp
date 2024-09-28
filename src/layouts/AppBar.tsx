@@ -5,33 +5,26 @@ import MenuIcon from '@mui/icons-material/Menu'
 import MenuOpenIcon from '@mui/icons-material/MenuOpen'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
 import LightModeIcon from '@mui/icons-material/LightMode'
+import { useRecoilState } from 'recoil'
+import { isDarkModeState } from '@/stores/theme'
+import type { CollageType } from './NavBar'
 
-type CollageType = {
-  collage: boolean | undefined
-  setCollage: () => void
-}
-
-export interface AppBarProp extends CollageType {
+export type AppBarProp = CollageType & {
   className?: string
 }
 const AppBar: React.FC<AppBarProp> = ({
   className,
   collage = undefined,
-  setCollage,
+  setCollage = () => {},
 }) => {
-  const [dark, setDark] = useState(false)
+  const [dark, setDark] = useRecoilState(isDarkModeState)
   function toggleTheme() {
     setDark(!dark)
-    document.documentElement.classList.toggle('dark', dark)
   }
   useEffect(() => {
     // default by system
     document.documentElement.classList.toggle('dark', dark)
   }, [dark])
-  useEffect(() => {
-    // default by system
-    setDark(window.matchMedia('(prefers-color-scheme: dark)').matches)
-  }, [])
   return (
     <>
       <div
@@ -45,12 +38,12 @@ const AppBar: React.FC<AppBarProp> = ({
                 setCollage()
               }}
             >
-              {collage ? <MenuIcon /> : <MenuOpenIcon />}
+              {collage ? <MenuOpenIcon /> : <MenuIcon />}
             </IconButton>
           )}
           <a
             href="/"
-            className="flex items-center space-x-1 hover:cursor-pointer"
+            className="flex self-center md:items-center space-x-1 hover:cursor-pointer "
           >
             <img src={LogoSvg} alt="logo" className="h-8 w-auto" />
             <div className="text-xl font-bold">
@@ -59,8 +52,8 @@ const AppBar: React.FC<AppBarProp> = ({
           </a>
         </div>
         <div className="flex items-center px-4">
-          <IconButton onClick={toggleTheme} color='primary'>
-            {dark ? <LightModeIcon /> : <DarkModeIcon />}
+          <IconButton onClick={toggleTheme} color="primary">
+            {!dark ? <LightModeIcon /> : <DarkModeIcon />}
           </IconButton>
         </div>
       </div>
