@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+
 import LogoSvg from '@/assets/logo.svg'
 import { IconButton } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
@@ -17,6 +19,8 @@ const AppBar: React.FC<AppBarProp> = ({
   collage = undefined,
   setCollage = (val: boolean) => {},
 }) => {
+  const navigate = useNavigate()
+
   const [dark, setDark] = useRecoilState(isDarkModeState)
   function toggleTheme() {
     setDark(!dark)
@@ -49,15 +53,15 @@ const AppBar: React.FC<AppBarProp> = ({
               {collage ? <MenuOpenIcon /> : <MenuIcon />}
             </IconButton>
           )}
-          <a
-            href="/"
+          <div
             className="flex self-center md:items-center space-x-1 hover:cursor-pointer "
+            onClick={() => navigate('/')}
           >
             <img src={LogoSvg} alt="logo" className="h-8 w-auto" />
             <div className="text-xl font-bold">
               {process.env.REACT_APP_TITLE}
             </div>
-          </a>
+          </div>
         </div>
         <div className="flex items-center px-4">
           <IconButton onClick={toggleTheme} color="primary">
