@@ -15,7 +15,7 @@ export type AppBarProp = CollageType & {
 const AppBar: React.FC<AppBarProp> = ({
   className,
   collage = undefined,
-  setCollage = () => {},
+  setCollage = (val: boolean) => {},
 }) => {
   const [dark, setDark] = useRecoilState(isDarkModeState)
   function toggleTheme() {
@@ -25,6 +25,13 @@ const AppBar: React.FC<AppBarProp> = ({
     // default by system
     document.documentElement.classList.toggle('dark', dark)
   }, [dark])
+  useEffect(() => {
+    // collage get from local storage
+    const localCollage = localStorage.getItem('collage')
+    if (localCollage) {
+      setCollage(JSON.parse(localCollage))
+    }
+  }, [])
   return (
     <>
       <div
@@ -35,7 +42,8 @@ const AppBar: React.FC<AppBarProp> = ({
             <IconButton
               aria-label="toggle"
               onClick={() => {
-                setCollage()
+                localStorage.setItem('collage', JSON.stringify(!collage))
+                setCollage(!collage)
               }}
             >
               {collage ? <MenuOpenIcon /> : <MenuIcon />}

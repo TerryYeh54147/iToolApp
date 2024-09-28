@@ -5,7 +5,7 @@ import type { NavigationItem } from '@toolpad/core'
 
 export type CollageType = {
   collage?: boolean
-  setCollage?: () => void
+  setCollage?: (val: boolean) => void
 }
 export type NavBarItem = {
   label: string

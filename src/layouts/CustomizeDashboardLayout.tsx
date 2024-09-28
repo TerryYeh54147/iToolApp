@@ -13,14 +13,18 @@ const CustomizeDashboardLayout: React.FC<CustomizeDashboardLayoutProp> = ({
 }) => {
   const [collage, setCollage] = useState(false)
 
-  const onToggle = () => {
-    setCollage(!collage)
+  const onToggle = (val: boolean) => {
+    setCollage(val)
   }
   return (
     <>
       <div className={`flex flex-col h-screen `}>
         {/* AppBar */}
-        <AppBar className="p-4" collage={collage} setCollage={onToggle} />
+        <AppBar
+          className="p-4"
+          collage={collage}
+          setCollage={(e: boolean) => onToggle(e)}
+        />
 
         <div className="flex flex-1 overflow-hidden">
           {/* 左側導覽欄 */}
