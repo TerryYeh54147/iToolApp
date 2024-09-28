@@ -1,13 +1,19 @@
+import { ParentProps } from '@/types/component'
 import React from 'react'
-import { Outlet } from 'react-router-dom'
-const Containerlayout: React.FC = () => {
+import AppBar from '@/layouts/AppBar'
+
+const Containerlayout: React.FC<ParentProps> = ({ children }) => {
   return (
     <>
-      <div className="flex flex-col items-center justify-center h-screen">
-        <Outlet />
+      <div className={`flex flex-col h-screen `}>
+        {/* AppBar */}
+        <AppBar className="p-4"/>
+
+        <div className="flex flex-col items-center justify-center h-screen">
+          {children}
+        </div>
       </div>
     </>
   )
 }
-
 export default Containerlayout

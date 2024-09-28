@@ -1,6 +1,5 @@
 import React from 'react'
-import { useNavigate, useLocation, Path } from 'react-router-dom'
-import type { Router } from '@toolpad/core'
+import { useNavigate } from 'react-router-dom'
 import navItems from '@/components/NavItems'
 import type { NavigationItem } from '@toolpad/core'
 
