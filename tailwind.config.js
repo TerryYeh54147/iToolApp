@@ -12,7 +12,7 @@ module.exports = {
           txtColor: '#000000',
         },
         dark: {
-          bgColor: '#323640',
+          bgColor: '#1e1e1e',
           txtColor: '#ffffff',
         },
       },
