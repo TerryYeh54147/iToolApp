@@ -17,11 +17,13 @@ import { useDnD } from './DnDContext'
 import { AppNode, initialNodes, nodeTypes } from '@/components/flow/nodes'
 import { initialEdges, edgeTypes } from '@/components/flow/edges'
 import { isDarkModeState } from '@/stores/theme'
+import { useRecoilValue } from 'recoil'
 
 let id = 0
 const getId = () => `dndnode_${id++}`
 
 export default function DnDFlow() {
+  const isDarkMode = useRecoilValue(isDarkModeState)
   const reactFlowWrapper = useRef(null)
 
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes)
@@ -108,7 +110,7 @@ export default function DnDFlow() {
       >
         <div className="place-center w-full h-[84dvh]" ref={reactFlowWrapper}>
           <ReactFlow
-            colorMode={isDarkModeState ? 'dark' : 'light'}
+            colorMode={isDarkMode ? 'dark' : 'light'}
             nodes={nodes}
             nodeTypes={nodeTypes}
             onNodesChange={onNodesChange}

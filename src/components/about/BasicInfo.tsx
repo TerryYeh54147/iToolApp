@@ -22,7 +22,7 @@ const BasicInfo: React.FC = () => {
   const content = (
     <>
       <div className="grid grid-flow-row gap-10 h-full">
-        <div className="font-mono indent-4 text-wrap break-words ">
+        <div className="indent-4 text-wrap break-words ">
           Love to explore new things! I’m constantly creating new tools here.
           Your support through donations helps me continue to innovate and bring
           more exciting projects to life. Thank you for your generosity!
