@@ -8,7 +8,7 @@ body {
   @apply bg-light-bgColor text-light-txtColor dark:bg-dark-bgColor dark:text-dark-txtColor;
 }
 
-button {
+span,button {
   @apply text-light-txtColor dark:text-dark-txtColor;
 }
 

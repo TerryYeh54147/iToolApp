@@ -16,12 +16,12 @@ import NodePickBar from './NodePickBar'
 import { useDnD } from './DnDContext'
 import { AppNode, initialNodes, nodeTypes } from '@/components/flow/nodes'
 import { initialEdges, edgeTypes } from '@/components/flow/edges'
-import { useTheme } from '@mui/material/styles'
+import { isDarkModeState } from '@/stores/theme'
+
 let id = 0
 const getId = () => `dndnode_${id++}`
 
 export default function DnDFlow() {
-  const theme = useTheme()
   const reactFlowWrapper = useRef(null)
 
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes)
@@ -108,7 +108,7 @@ export default function DnDFlow() {
       >
         <div className="place-center w-full h-[84dvh]" ref={reactFlowWrapper}>
           <ReactFlow
-            colorMode={theme.palette.mode}
+            colorMode={isDarkModeState ? 'dark' : 'light'}
             nodes={nodes}
             nodeTypes={nodeTypes}
             onNodesChange={onNodesChange}
