@@ -310,8 +310,10 @@ const PaintApp: React.FC = () => {
         className="border mt-4 hover:cursor-crosshair"
         width={window.innerWidth}
         height={window.innerHeight}
-        onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
+        onMouseDown={handleMouseDown}
+        onTouchStart={handleMouseMove}
+        onTouchEnd={handleMouseDown}
         onMouseUp={handleMouseUp}
         ref={stageRef}
       >
