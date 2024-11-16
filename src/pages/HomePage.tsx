@@ -27,7 +27,7 @@ const HomePage: React.FC = () => {
                     {e.title}
                   </div>
                 )}
-                {e.kind == null && (
+                {e.kind == null && e.segment!== '' && (
                   <div
                     key={i}
                     className="flex-auto border-solid rounded border-2 hover:border-sky-500 hover:shadow-xl "

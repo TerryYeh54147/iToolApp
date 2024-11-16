@@ -5,6 +5,7 @@ import {
   Analytics,
   QueryStats,
   Schema,
+  Brush,
 } from '@mui/icons-material'
 const navItems: Navigation = [
   {
@@ -15,6 +16,11 @@ const navItems: Navigation = [
     segment: '',
     title: 'Dashboard',
     icon: <Dashboard />,
+  },
+  {
+    segment: 'paint',
+    title: 'Painter',
+    icon: <Brush />,
   },
   {
     segment: 'flow',

@@ -5,6 +5,7 @@ import Containerlayout from '@/layouts/Containerlayout'
 import CustomizeDashboardLayout from '@/layouts/CustomizeDashboardLayout'
 const HomePage = lazy(() => import('@/pages/HomePage'))
 const AboutPage = lazy(() => import('@/pages/AboutPage'))
+const PaintPage = lazy(() => import('@/pages/PaintPage'))
 const FlowPage = lazy(() => import('@/pages/FlowPage'))
 const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'))
 
@@ -21,6 +22,7 @@ export default function Route() {
       children: [
         { element: <HomePage />, index: true },
         { path: 'about', element: <AboutPage /> },
+        { path: 'paint', element: <PaintPage /> },
         { path: 'flow', element: <FlowPage /> },
       ],
     },
